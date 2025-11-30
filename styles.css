@@ -1,0 +1,1004 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    font-family: "poppins", sans-serif;
+}
+html, body {
+    overflow-x: hidden;
+}
+
+
+.home-section {
+    min-height: 100vh;   /* ocupa a altura inteira da tela */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* centraliza verticalmente */
+    padding-top: 120px; /* evita o menu fixo por cima */
+    box-sizing: border-box;
+}
+
+
+body {
+    background: radial-gradient(#000000, #454546);
+    color: #fff;
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+}
+
+header {
+    position: fixed;
+    width: 80vw;
+    left: 50%;
+    transform: translatex(-50%);
+    display: grid;
+    grid-template-columns: 1fr 600px;
+    gap: 10%;
+    z-index: 2;
+}
+
+header img {
+    width: 250px;
+}
+
+header nav ul {
+    display: grid;
+    grid-template-columns: repeat(3, 200px);
+}
+
+section.container {
+    background-image: radial-gradient(#a341d0, #791fd3);
+    height: 100vh;
+    position: relative;
+    --calculation: 1;
+}
+
+section .list {
+    width: 70vw;
+    height: 100%;
+    margin: auto;
+    position: relative;
+}
+
+section .list .item {
+    position: absolute;
+    inset: 0;
+}
+
+section .list .item .car-img {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 70%;
+}
+
+section .list .item .car-img img {
+    width: 100%;
+    transform: rotate(-30deg);
+}
+
+section .list .item .car-img::before {
+    content: '';
+    position: absolute;
+    background-color: #000;
+    width: 100%;
+    height: 100px;
+    top: 150%;
+    left: 50px;
+    border: 50%;
+    filter: blur(50px);
+}
+
+section .list .item .content {
+    position: absolute;
+    right: 100px;
+    width: 70%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: end;
+    gap: 20px;
+}
+
+section .list .item .content .car-information {
+    font-weight: bold;
+}
+
+section .list .item .content h2 {
+    font-size: 8em;
+    line-height: 1em;
+    font-family: "League Gothic", sans-serif;
+}
+
+section .list .item .content .description {
+    color: #d9d9d9;
+    font-size: 12px;
+    text-align: right;
+    max-width: 400px;
+}
+
+section .list .item .content .information {
+    border-radius: 30px;
+    height: 35px;
+    width: 120px;
+    text-transform: uppercase;
+    border: 2px solid #791df3;
+    background-color: #beff1b;
+    cursor: pointer;
+    font-weight: bold;
+    font-family: "League Gothic", sans-serif;
+}
+
+section .list::before {
+    content: '';
+    position: absolute;
+    height: 200px;
+    width: 100%;
+    top: 50%;
+    border-top: 1px solid #fff;
+}
+
+.indicators {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%);
+    height: 200px;
+    width: 90vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    gap: 15px;
+}
+
+.indicators .number {
+    font-size: 5em;
+    font-family: "League Gothic", sans-serif;
+}
+
+.indicators ul {
+    display: flex;
+    gap: 10px;
+}
+
+.indicators ul li {
+
+    width: 12px;
+    height: 12px;
+    background-color: #beff1b;
+    border-radius: 50%;
+    transition: 0.5s;
+    cursor: pointer; /* Adicionado para indicar que é clicável */
+}
+
+.indicators ul li.active {
+    background-color: #fff;
+}
+
+.arrows {
+    width: 70vw;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -25px);
+    display: flex;
+    justify-content: space-between;
+}
+
+.arrows button:nth-child(1) img {
+    transform: scaleX(-1);
+}
+
+.arrows button {
+    top: 60%;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+}
+
+.arrows button img {
+    width: 30px;
+    margin-top: 4px;
+    cursor: pointer;
+}
+
+.arrows button:hover {
+    background-color: #beff1b;
+}
+
+section .list .item {
+    transform: translateX(calc(100vw * var(--calculation)));
+    transition: 0.5s;
+    opacity: 0;
+}
+
+section .list .item .car-img img {
+    transform: rotate(0);
+    transition: 0.5s;
+    transition-delay: 0.3s;
+}
+
+section .list .item .content .car-information {
+    transform: translateX(calc(200px * var(--calculation)));
+    transition: 0.7s;
+    transition-delay: 0.3s;
+    opacity: 0;
+}
+
+section .list .item .content h2 {
+    transform: translateX(calc(200px * var(--calculation)));
+    transition: 0.7s;
+    transition-delay: 0.5s;
+    opacity: 0;
+}
+
+section .list .item .content .description {
+    transform: translateX(calc(200px * var(--calculation)));
+    transition: 0.7s;
+    transition-delay: 0.7s;
+    opacity: 0;
+}
+
+section .list .item .content .information {
+    transform: translateX(calc(200px * var(--calculation)));
+    transition: 0.7s;
+    transition-delay: 0.9s;
+    opacity: 0;
+}
+
+section .list .item.active {
+    transform: translateX(0);
+    transition: 0.5s;
+    opacity: 1;
+}
+
+section .list .item.active .car-img img {
+    transform: rotate(-20deg);
+}
+
+section .list .item.active .content .car-information {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+section .list .item.active .content h2 {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+section .list .item.active .content .description {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+section .list .item.active .content .information {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+html{
+  scroll-behavior: smooth; /* O smooth é responsavel por dar suavidade aos links */
+}
+
+/* INICIO HEADER */
+/* .nav é sobre a box preta, o fundo do header */
+.nav{
+  background-color: #181818;
+  height: 80px;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  position: fixed;
+  top:0;
+  z-index: 9;
+}
+.nav img {
+     margin-right: 700px; /* mantém no lado esquerdo */
+}
+/* ".nav-list" Essa é a box que informa posições das escritas, links e etc */
+.nav-list{
+  display: flex;
+  align-items: center;
+  list-style: none;
+  margin-right: 28px;
+}
+/*.nav-list a" Essa é a box das escritas, links e etc */
+.nav-list a{
+  text-decoration: none;
+  color: #DDD;
+  padding: 20px;
+}
+/*.nav-list a:hover" Serve para quando por o mouse por cima, ficar dessa forma */
+.nav-list a:hover{
+  color: #FFFFFF;
+}
+/* Todos esses 4 comando destinados a "a" é da barra preta superior que dá link aos demais locais do site, chamadas de header. */
+/* FIM HEADER */
+
+
+/* INICIO MAIN */
+.main{
+  width: 100%;
+    background: radial-gradient(#a341d0, #791fd3);
+  height: calc(100vh - 80px); /* Esse comando serve para tirar da soma o header, aonde o VH preenche a % da tela do usuario, o px é uma medida em pixels que nao muda. */
+  /*background-image: url(""); Esse comando serve para adicionar uma imagem */
+  display: flex;/* Esse comando serve para tornar a Box flexivel */
+  align-items: center;/* Esse comando serve para cetralizar seus itens */
+  padding-left: 10%;
+} 
+
+.main h1{
+  color: #FFFFFF;
+  font-size: 54px;
+}
+
+.main p {
+  font-size: 24px;
+  font-style: italic;
+  color: #1e96FC;
+  margin-top: 10px;
+  margin-bottom: 35px;
+}
+
+.call-to-action{
+  cursor: pointer;
+  background-color: #FFFFFF;
+  border:0;
+  padding: 14px;
+  border-radius: 4px;
+  font-size: 18px;
+  font-weight: bold;
+  transition: 0.9s;
+}
+
+.call-to-action:hover{
+  transform: scale(1.1);
+}
+
+.main a{
+  text-decoration: none;
+  color: #181818;
+}
+/* FIM MAIN */
+
+/* INICIO JAVA */
+.home-text {
+    max-width: 800px;    /* limita a largura para não "esticar" o site */
+    margin: 0 auto;      /* centraliza o conteúdo */
+    text-align: center;  /* deixa apresentável */
+    padding: 20px;       /* dá um respiro nas laterais */
+}
+
+.home-text h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.main p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #d9d9d9;
+}
+/* FIM JAVA */
+
+
+/* INICIO ABOUT */
+.about{
+background: radial-gradient(#111422, #232946);
+ width: 100%; 
+ padding-left: 10%;
+ padding-right: 10%;
+ padding-top: 80px;
+ padding-bottom: 80px;
+ min-height: 100vh; /* Faz a seção ocupar no mínimo a altura total da tela */ 
+ display: flex;
+ align-items: center;
+ justify-content: space-between;
+}
+
+.about div{
+  max-width: 50%;
+  padding-right: 40px;
+}
+
+.about img{
+  max-width: 450px;
+  border-radius: 8px;
+}
+
+.about div h2{
+  font-size: 32px;
+  margin-bottom: 14px;
+  color: #fffffe  ;
+}
+.about div p{
+  color: #b8c1ec;
+}
+/* FIM ABOUT */
+
+/* INICIO PROJECTS */
+.projects{
+  background-color: #0f0e17;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 0;
+  min-height: 100vh; /* Faz a seção ocupar no mínimo a altura total da tela */
+}
+
+.projects h2{
+  font-size: 32px;
+  margin-bottom: 8px;
+  margin-top: 20px;
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.projects p{
+  margin-bottom: 40px;
+  font-style: italic;
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.project-list {
+  display: flex;
+  justify-content: center;
+  gap: 0; /* Remove qualquer espaçamento extra */
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.project-list a {
+  display: inline-block;
+  width: 22%;
+  margin: 0; /* Remove margens extras */
+  padding: 0;
+}
+
+.project-list {
+  display: flex;
+  justify-content: center;
+  gap: 10px; /* Controla o espaçamento entre as imagens */
+  flex-wrap: wrap;
+
+}
+
+.project-list a {
+  display: inline-block;
+  width: 22%;
+  margin: 0; /* Removendo margens desnecessárias */
+}
+
+.project-list img {
+  width: 100%; /* Faz a imagem ocupar toda a largura do <a> */
+  height: auto;
+  opacity: 0.8;
+  transition: 0.9s;
+}
+
+.project-list img:hover {
+  opacity: 1;
+}
+
+.action{
+  background-color: #181818;
+  border:0;
+  padding: 12px 28px;
+  border-radius: 4px;
+  font-size: 18px;
+  color: #FFFFFF;
+  margin-top: 18px;
+  cursor: pointer;
+}
+/* FIM PROJECTS */
+
+
+
+/* Inicio IMC */
+.IMC{
+  background-color: #232946;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 0;
+  min-height: 100vh; /* Faz a seção ocupar no mínimo a altura total da tela */
+}
+/* Fim IMC */
+
+
+
+/* INICIO RODAPE */
+footer{
+  width: 100%;
+  background-color: #181818;
+  padding: 60px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #8f1414;
+}
+
+footer a {
+  text-decoration: none;
+  color: #FFFFFF;
+}
+
+footer p {
+  margin-left: 12px;
+}
+/* FIM RODAPE */
+
+
+/* RESPONSIVIDADE */
+/* esse @media (max-width: X) serve para mudar itens a partir daquela quantidade de pixeis, ou seja, por um exemplo, abaixo só irá alterar a partir dos 1050px */
+@media (max-width: 1050px){
+  /* INICIO MAIN */
+ 
+  
+
+  .main h1{
+    font-size: 45px;
+  }
+
+  .main p{
+    font-size: 18px;
+  }
+
+  .main{
+    background-size: cover;
+  }
+  /* FIM MAIN */
+
+  /* INICIO SOBRE */
+  .about{
+    flex-direction: column;
+    padding-top: 80px;
+    padding-left: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+  }
+
+  .about div{
+    max-width: 80%;
+  }
+
+  .about div h2{
+    font-size: 45px;
+  }
+
+  .about img{
+    width: 90%;
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+  /* FIM SOBRE */
+
+  /* INICIO PROJETOS */
+  .projects img{
+    width: 100%;
+    margin-left: 10px;
+    margin-right: 10px ;
+    
+    }
+  /* FIM PROJETOS */
+
+  /* INICIO RODAPE */
+  footer{
+    flex-direction: column;
+  }
+
+  footer h3{
+    font-size: 24px;
+    margin-bottom: 8px;
+  }
+
+  footer p{
+    margin:0;
+  }
+  /* FIM RODAPE */
+
+}
+
+/* Seção HOME */
+.home-section {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.home-section .home-title {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.home-section .home-subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+    opacity: 0.8;
+}
+
+/* Cards de Veículos */
+.vehicles-list {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.vehicle-card {
+    background: #1a1a1a;
+    padding: 20px;
+    border-radius: 15px;
+    width: 300px;
+    text-align: center;
+    color: #fff;
+    transition: .3s;
+    border: 1px solid #333;
+}
+
+.vehicle-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+}
+
+.vehicle-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: contain;
+    margin-bottom: 15px;
+}
+
+.vehicle-card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 8px;
+}
+
+.price {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    color: #ffd32a;
+}
+
+.buy-button {
+    background: #ffd32a;
+    color: #000;
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    transition: .3s;
+}
+
+.buy-button:hover {
+    background: #ffdf61;
+}
+
+@media (max-width: 768px) {
+    .vehicles-list {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .vehicle-card {
+        width: 90%;
+        max-width: 330px;
+    }
+}
+
+@media (max-width: 480px) {
+    .home-section .home-title {
+        font-size: 2rem;
+    }
+
+    .vehicle-card img {
+        height: 150px;
+    }
+}
+
+/* MOBILE PEQUENO – HEADER COMPACTO */
+@media (max-width: 540px) {
+
+    /* Header principal */
+    .nav {
+        flex-direction: column;       /* duas linhas se necessário */
+        height: auto;
+        padding: 5px 10px;
+        align-items: center;
+    }
+
+    /* Logo */
+    .nav img {
+        width: 120px;                 /* tamanho menor para caber */
+        margin: 0 auto 5px auto;      /* centraliza e dá pequeno espaçamento */
+    }
+
+    /* Lista de navegação */
+    .nav-list {
+        flex-wrap: wrap;              /* permite quebra em 2 linhas */
+        justify-content: center;
+        gap: 5px;                     /* pequeno espaço entre os links */
+        margin: 0;
+        padding: 0;
+    }
+
+    .nav-list li {
+        width: auto;                  /* cada item ocupa apenas o necessário */
+    }
+
+    .nav-list a {
+        font-size: 12px;              /* fonte pequena mas legível */
+        padding: 6px 10px;            /* área clicável compacta */
+        display: block;
+        text-align: center;
+    }
+}
+
+/* CELULARES MÉDIOS (540px – 768px) */
+@media (min-width: 541px) and (max-width: 768px) {
+
+    .nav {
+        flex-direction: row;
+        justify-content: space-between;
+        height: 60px;
+        padding: 5px 20px;
+    }
+
+    .nav img {
+        width: 150px;                 /* tamanho maior que celular pequeno */
+        margin: 0;
+    }
+
+    .nav-list {
+        flex-wrap: nowrap;            /* mantém em uma linha */
+        gap: 10px;
+    }
+
+    .nav-list a {
+        font-size: 13px;
+        padding: 8px 12px;
+    }
+}
+/* MOBILE PEQUENO – CARROS FIXOS E TEXTOS ABAIXO */
+@media (max-width: 540px) {
+
+    /* Container do carrossel */
+    section.container {
+        height: auto; /* altura se ajusta ao conteúdo */
+        padding-top: 120px; /* espaço para barra de navegação */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    section .list {
+        width: 90%;
+        height: 220px; /* altura aproximada do carrossel fixo */
+        margin: 0 auto;
+        position: relative; /* mantém os carros no mesmo lugar */
+    }
+
+    section .list .item {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        transform: translateX(calc(100vw * var(--calculation)));
+        opacity: 0;
+        transition: 0.5s;
+    }
+
+    section .list .item.active {
+        transform: translateX(0);
+        opacity: 1;
+    }
+
+    /* Imagem do carro */
+    section .list .item .car-img {
+        position: relative;
+        width: 90%;
+        margin: 0 auto;
+        top: 20px; /* desce um pouco mais que o original */
+        transform: rotate(-10deg);
+    }
+
+    section .list .item .car-img img {
+        width: 100%;
+        height: auto;
+    }
+
+    /* Textos abaixo do carrossel */
+    section .list .item .content {
+        position: relative;
+        top: auto;
+        right: auto;
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 8px;
+        padding: 10px 0;
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    section .list .item .content h2 {
+        font-size: 1.5rem; /* fonte menor para mobile */
+        text-align: center;
+    }
+
+    section .list .item .content .description {
+        font-size: 12px;
+        max-width: 90%;
+        text-align: center;
+    }
+
+    section .list .item .content .information {
+        width: 100px;
+        height: 30px;
+        font-size: 12px;
+    }
+}
+
+/* CELULARES MÉDIOS (541px – 768px) */
+@media (min-width: 541px) and (max-width: 768px) {
+
+    section.container {
+        padding-top: 140px;
+    }
+
+    section .list {
+        width: 90%;
+        height: 280px; /* altura do carrossel ajustada */
+        margin: 0 auto;
+    }
+
+    section .list .item .car-img {
+        width: 80%;
+        margin: 0 auto;
+        top: 25px;
+        transform: rotate(-15deg);
+    }
+
+    section .list .item .content {
+        width: 100%;
+        gap: 10px;
+        padding: 15px 0;
+    }
+
+    section .list .item .content h2 {
+        font-size: 2rem;
+        text-align: center;
+    }
+
+    section .list .item .content .description {
+        font-size: 13px;
+        max-width: 80%;
+    }
+
+    section .list .item .content .information {
+        width: 110px;
+        height: 32px;
+        font-size: 13px;
+    }
+}
+/* MOBILE – CARROS DESLOCADOS PARA BAIXO, TEXTO ABAIXO, 100vh */
+@media (max-width: 540px) {
+
+    section.container {
+        height: 100vh; /* mantém a tela inteira */
+        padding-top: 80px; /* espaço para navbar fixa */
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        position: relative;
+    }
+
+    section .list {
+        width: 90%;
+        height: 100%; /* mantém 100vh da seção */
+        margin: 0 auto;
+        position: relative;
+    }
+
+    section .list .item {
+        position: absolute;
+        top: 60px; /* desce os carros um pouco, mantendo animação horizontal */
+        left: 0;
+        width: 100%;
+        transform: translateX(calc(100vw * var(--calculation)));
+        opacity: 0;
+        transition: 0.5s;
+    }
+
+    section .list .item.active {
+        transform: translateX(0);
+        opacity: 1;
+    }
+
+    section .list .item .car-img {
+        width: 90%;
+        margin: 0 auto;
+        transform: rotate(-10deg);
+    }
+
+    /* Textos abaixo do carrossel */
+    section .list .item .content {
+        position: absolute;
+        bottom: 20px; /* fixa no fundo da seção */
+        right: 0;
+        left: 0;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 5px;
+        padding: 0 10px;
+        text-align: center;
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    section .list .item .content h2 {
+        font-size: 1.5rem;
+    }
+
+    section .list .item .content .description {
+        font-size: 12px;
+        max-width: 90%;
+    }
+
+    section .list .item .content .information {
+        width: 100px;
+        height: 30px;
+        font-size: 12px;
+    }
+}
+
+/* CELULARES MÉDIOS – AJUSTE */
+@media (min-width: 541px) and (max-width: 768px) {
+    section.container {
+        height: 100vh;
+        padding-top: 80px;
+    }
+
+    section .list .item {
+        top: 80px; /* carros um pouco mais para baixo */
+    }
+
+    section .list .item .car-img {
+        width: 80%;
+        transform: rotate(-15deg);
+    }
+
+    section .list .item .content {
+        bottom: 30px;
+    }
+
+    section .list .item .content h2 {
+        font-size: 2rem;
+    }
+
+    section .list .item .content .description {
+        font-size: 13px;
+        max-width: 80%;
+    }
+
+    section .list .item .content .information {
+        width: 110px;
+        height: 32px;
+        font-size: 13px;
+    }
+}
+
